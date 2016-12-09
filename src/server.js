@@ -1,15 +1,15 @@
+import * as ReactRouter from "react-router";
+
+import React from "react";
+import ReactDOM from "react-dom/server";
+import Transmit from "react-transmit";
 import babelPolyfill from "babel-polyfill";
+import favicon from "favicon.ico";
+import githubApi from "apis/github";
 import koa from "koa";
 import koaProxy from "koa-proxy";
 import koaStatic from "koa-static";
-import React from "react";
-import ReactDOM from "react-dom/server";
-import * as ReactRouter from "react-router";
-import Transmit from "react-transmit";
-
-import githubApi from "apis/github";
 import routesContainer from "containers/routes";
-import favicon from "favicon.ico";
 
 try {
 	const app      = koa();
@@ -45,7 +45,7 @@ try {
 
 				const StyleProvider = React.createClass({
 					childContextTypes:{
-						styles:    React.PropTypes.array,
+						styles:    React.PropTypes.object,
 						insertCss: React.PropTypes.func
 					},
 
